@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import "../../src/index.css";
+import StarRatings from 'react-star-ratings';
+import "../../src/App.css";
 
 class BookList extends Component {
     handleChange = (e) =>{
@@ -10,7 +11,6 @@ class BookList extends Component {
   render() {
     const { book} = this.props;
     const bookShelf = this.props.search ? this.props.search : book.shelf;
-    console.log(bookShelf)
     return (
         <div className="book">
           <div className="book-top">
@@ -36,6 +36,14 @@ class BookList extends Component {
           </div>
           <div className="book-title">{book.title}</div>
           <div className="book-authors">{book.authors}</div>
+          <StarRatings
+          rating={book.averageRating}
+          starRatedColor="orange"
+          numberOfStars={5}
+          starDimension="20px"
+          name='rating'
+          starSpacing="2px"
+        />
         </div>
     );
   }
