@@ -1,9 +1,9 @@
-import React from "react"
-import "./App.css"
-import { Route } from "react-router-dom"
-import DisplayBooks from "./Components/DisplayBooks"
-import SearchBooks from "./Components/SearchBooks"
-import * as BooksAPI from "./BooksAPI"
+import React from "react";
+import "./App.css";
+import { Route } from "react-router-dom";
+import DisplayBooks from "./Components/DisplayBooks";
+import SearchBooks from "./Components/SearchBooks";
+import * as BooksAPI from "./BooksAPI";
 
 class BooksApp extends React.Component {
   state = {
@@ -60,15 +60,22 @@ class BooksApp extends React.Component {
     });
   };
 
+  emptySearchResults = () => {
+    this.setState({
+      searchBooks: [],
+    });
+  };
+
   render() {
     return (
       <div className="app">
-       <Route
+        <Route
           path="/search"
           render={({ history }) => (
             <SearchBooks
               searchBooks={this.state.searchBooks}
               books={this.state.books}
+              emptySearchResults={this.emptySearchResults}
               showLegend={this.state.showLegend}
               onSearchFunction={this.searchBooks}
               onUpdateFunction={(shelf, book) => {
@@ -77,7 +84,7 @@ class BooksApp extends React.Component {
               }}
             />
           )}
-        /> :
+        />
         <Route
           exact
           path="/"
@@ -87,7 +94,7 @@ class BooksApp extends React.Component {
               onUpdateFunction={this.updateShelf}
             />
           )}
-        /> 
+        />
       </div>
     );
   }

@@ -23,7 +23,7 @@ class BookList extends Component {
               }}
             ></div>
             <div className="book-shelf-changer">
-              <select onChange = {this.handleChange} defaultValue = {bookShelf}>
+              <select value = {bookShelf} onChange = {this.handleChange}>
                 <option value="move" disabled>
                   Move to...
                 </option>
