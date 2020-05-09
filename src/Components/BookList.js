@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import StarRatings from 'react-star-ratings';
-import "../../src/App.css";
+import React, { Component } from "react"
+import StarRatings from 'react-star-ratings'
+import "../../src/App.css"
 
 class BookList extends Component {
     handleChange = (e) =>{
